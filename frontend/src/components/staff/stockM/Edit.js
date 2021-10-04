@@ -100,44 +100,41 @@ export default class Edit extends Component {
     const { name , age , gender , birthdate , address, phone, email, photo} = this.props.match.params;
     return (
         <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" >
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
                 <div className="container-fluid">
-                  <a className="navbar-brand" href="#" style={{color:"red"}}><b>Stock Management System</b></a>
+                  <a className="navbar-brand" href="#" style={{color:"#CD5C5C"}}><b>Stock Management System</b></a>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
                   <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 nav nav-tabs">
                       <li className="nav-item">
-                        <Link className="nav-link " aria-current="page" to = "/staff-stockM"><i class="fa fa-fw fa-home"></i>Home</Link>
+                        <Link className="nav-link " aria-current="page" to = "/staff-stockM" style={{color:"#008080"}}><i class="fa fa-fw fa-home"></i>Home</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link " to = "/add-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
+                        <Link className="nav-link " to = "/add-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Assistant</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to = "/display-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
+                        <Link className="nav-link" to = "/display-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Assistant</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link active" to = "#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Assistant</Link>
+                        <Link className="nav-link active" to = "#" style={{color:"#008080"}}><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Assistant</Link>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" to = "/addInven-stockM"><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
+                        <Link className="nav-link" to = "/addInven-stockM" style={{color:"#008080"}}><i class="fa fa-user-circle" aria-hidden="true"></i> Add Inventory</Link>
                     </li> 
                     <li className="nav-item">
-                        <Link className="nav-link" to = "/displayInven-stockM"><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
+                        <Link className="nav-link" to = "/displayInven-stockM" style={{color:"#008080"}}><i class="fa fa-desktop" aria-hidden="true"></i> Display Inventory</Link>
                     </li> 
                     </ul>
-                    <form className="d-flex">
-                      <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"60%"}}/>
-                      <button className="btn btn-outline-success" type="submit"><i class="fa fa-fw fa-search"></i>Search</button>
-                    </form>
                   </div>
                 </div>
               </nav>
              
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Current Info 👁</h1>
-                <table>
+              <div className="stockImage"><br/><br/>
+                <div className="form-wrapper container" style={{width:"100%", background:"#000000" , padding:"5px 5px 5px 5px" , opacity:"0.8"}}><br/>
+                <h1 style = {{color: "white"}}>Current Info 👁</h1>
+                <table >
 
                     <td controlId="Name">
                     <label>Name</label>
@@ -176,26 +173,26 @@ export default class Edit extends Component {
 
 
 
-                </table>
-                </div>
-                <div className="form-wrapper container" style={{width:"50%"}}><br/><br/>
-                <h1>Need to Update ? 🤔</h1>
+                </table><br/>
+                </div><br/>
+                <div className="form-wrapper container" style={{width:"50%"  , background:"#000000" , padding:"5px 5px 10px 10px" , opacity:"0.8"}}><br/>
+                <h1 style = {{color: "white"}}>Need to Update ? 🤔</h1>
                 <Form onSubmit={this.onSubmit}>
                
                     <Form.Group controlId="Name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required />
-                    </Form.Group>
+                    <Form.Control type="text" value={this.state.name} onChange={this.onChangeStudentName} placeholder="✍🏻 Edit Name" required pattern="[A-Za-z]+"/>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="Age">
                     <Form.Label>Age</Form.Label>
-                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required/>
-                    </Form.Group>
+                    <Form.Control type="text" value={this.state.age} onChange={this.onChangeStudentAge} placeholder="✍🏻 Edit Age" required pattern="[1-9]{1,3}"/>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="Gender">
                     <Form.Label>Gender</Form.Label>
-                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required/>
-                    </Form.Group>
+                    <Form.Control type="text" value={this.state.gender} onChange={this.onChangeStudentGender} placeholder="✍🏻 Edit Gender" required pattern="[A-Za-z]+"/>
+                    </Form.Group><br/>
 
                     <Form.Group controlId="Birthdate">
                     <Form.Label>Birthdate</Form.Label>
@@ -209,22 +206,22 @@ export default class Edit extends Component {
 
                     <Form.Group controlId="Phone">
                     <Form.Label>Phone</Form.Label>
-                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required/>
+                    <Form.Control type="text" value={this.state.phone} onChange={this.onChangeStudentPhone} placeholder="✍🏻 Edit Phone" required pattern = "[0-9]{10}"/>
                     </Form.Group><br/>
 
                     <Form.Group controlId="Email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeStudentEmail} placeholder="✍🏻 Edit Email" required/>
+                    <Form.Control type="text" value={this.state.email} onChange={this.onChangeStudentEmail} placeholder="✍🏻 Edit Email" required pattern = "[0-9a-zA-Z%&$@.]+@[a-zA-Z]+\.+[a-zA-Z]{2,3}"/>
                     </Form.Group><br/>
 
-                    <Form.Group controlId="Email">
+                    <Form.Group controlId="Photo">
                     <Form.Label>Photo</Form.Label>
                     <i class="fa fa-folder-open" aria-hidden="true"></i>
                     <input 
                         type="file" 
                         accept=".png, .jpg, .jpeg"
                         name="photo"
-                        onChange={this.onChangeStudentPhoto} required
+                        onChange={this.onChangeStudentPhoto} required style={{color:"white"}}
                     />
                    
                     </Form.Group>
@@ -233,9 +230,9 @@ export default class Edit extends Component {
                     <Button variant="danger" size="lg" block="block" type="submit">
                     <i className="fa fa-paper-plane-o" aria-hidden="true"></i> Update Assistant
                     </Button>
-                </Form><br/><br/><br/><br/>
+                </Form><br/>
+                </div><br/><br/>
                 </div>
-             
         </div>
        );
   }
